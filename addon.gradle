@@ -1,0 +1,19 @@
+minecraft {
+    injectedTags.put("MOD_ID", modId)
+    injectedTags.put("MOD_NAME", modName)
+    injectedTags.put("MOD_VERSION", modVersion)
+    injectedTags.put("MOD_DEPENDENCIES", "")
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHub-Packages"
+            url = uri("https://maven.pkg.github.com/glektarssza-minecraft/common-lib")
+            credentials {
+                username = project.findProperty("ghpr.user") ?: System.getenv("GHPR_USERNAME")
+                password = project.findProperty("ghpr.key") ?: System.getenv("GHPR_TOKEN")
+            }
+        }
+    }
+}
