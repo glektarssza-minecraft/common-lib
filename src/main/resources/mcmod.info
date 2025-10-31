@@ -1,0 +1,18 @@
+[
+    {
+        "modid": "${modId}",
+        "name": "${modName}",
+        "description": "A common utility library across my Minecraft mods.",
+        "version": "${modVersion}",
+        "mcversion": "${minecraftVersion}",
+        "url": "https://github.com/glektarssza-minecraft/common-lib",
+        "updateUrl": "https://github.com/glektarssza-minecraft/common-lib/raw/refs/heads/main/forgeUpdateManifest.json",
+        "authorList": [
+            "G'lek Tarssza"
+        ],
+        "credits": "G'lek Tarssza for this mod, the GTNH team for their Gradle build tools, the RetroFuturaGradle team for their build tools.",
+        "logoFile": "assets/common_lib/textures/logo.png",
+        "dependencies": [],
+        "screenshots": []
+    }
+]
