@@ -1,0 +1,8 @@
+{
+    "required": true,
+    "target": "@env(DEFAULT)",
+    "minVersion": "0.8.3-GTNH",
+    "package": "com.glektarssza.glek_common_lib.mixins.late",
+    "refmap": "mixins.glek_common_lib.refmap.json",
+    "compatibilityLevel": "JAVA_8"
+}
