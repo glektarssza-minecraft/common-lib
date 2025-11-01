@@ -154,5 +154,14 @@
     "java.silentNotification": true,
     "java.sources.organizeImports.starThreshold": 9999,
     "java.sources.organizeImports.staticStarThreshold": 9999,
-    "java.symbols.includeSourceMethodDeclarations": true
+    "java.symbols.includeSourceMethodDeclarations": true,
+    "terminal.integrated.env.linux": {
+        "JAVA_HOME": "<PATH-TO-JDK-21>"
+    },
+    "terminal.integrated.env.osx": {
+        "JAVA_HOME": "<PATH-TO-JDK-21>"
+    },
+    "terminal.integrated.env.windows": {
+        "JAVA_HOME": "C:/Users/roblo/scoop/apps/temurin21-jdk/current/"
+    }
 }
