@@ -3,6 +3,16 @@ name: Build
 on:
   workflow_call:
     inputs:
+      publish-to-github-packages:
+        description: |
+          Whether to publish the build to a GitHub package.
+
+          Useful when testing other parts of the build workflow.
+
+          Defaults to "false".
+        type: boolean
+        required: false
+        default: false
       ref:
         description: |
           The Git reference from which to clone the project.
@@ -46,6 +56,8 @@ on:
       upload-artifacts:
         description: |
           Whether to upload artifacts.
+
+          Useful when testing other parts of the build workflow.
 
           Defaults to `true`.
         type: boolean
@@ -135,8 +147,15 @@ jobs:
       - id: build
         name: Build
         run: ./gradlew build
+      - id: publish-to-github-packages
+        name: Publish to GitHub Packages
+        if: inputs.publish-to-github-packages
+        run: ./gradlew publishAllPublicationsToGitHub-PackagesRepository
       - id: upload-artifacts
         name: Upload artifacts
+        env:
+          GHPR_USERNAME: ${{github.actor}}
+          GHPR_TOKEN: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
         if: inputs.upload-artifacts
         uses: actions/upload-artifact@v5
         with:
