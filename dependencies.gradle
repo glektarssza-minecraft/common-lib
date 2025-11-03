@@ -34,7 +34,10 @@ dependencies {
         runtimeOnlyNonPublishable(rfg.deobf("com.github.GTNewHorizons:WAILAPlugins:0.6.0:dev"))
     }
 
-    testImplementation(platform('org.junit:junit-bom:5.9.2'))
-    testImplementation('org.junit.jupiter:junit-jupiter')
+    testImplementation(platform("org.junit:junit-bom:5.9.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation('org.junit.platform:junit-platform-engine')
+    testImplementation('org.junit.platform:junit-platform-launcher')
     testImplementation("org.mockito:mockito-core:5.+")
+    testImplementation("net.datafaker:datafaker:1.9.0")
 }
