@@ -24,6 +24,16 @@ on:
         type: boolean
         required: false
         default: true
+      publish-to-github-packages:
+        description: |
+          Whether to publish the released assets to a GitHub package.
+
+          Useful when testing other parts of the publish workflow.
+
+          Defaults to "true".
+        type: boolean
+        required: false
+        default: true
       ref:
         description: |
           The Git reference from which to clone the project.
@@ -75,12 +85,15 @@ jobs:
     permissions:
       # -- To clone repository
       contents: read
+      # -- To publish packages
+      packages: write
     uses: ./.github/workflows/build.yaml
     with:
       ref: ${{inputs.ref}}
       java-version: ${{inputs.java-version}}
       java-vendor: ${{inputs.java-vendor}}
       gradle-version: ${{inputs.gradle-version}}
+      publish-to-github-packages: ${{inputs.publish-to-github-packages}}
     secrets:
       github-token: ${{secrets.github-token || secrets.GITHUB_TOKEN}}
   publish:
