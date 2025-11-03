@@ -1,5 +1,12 @@
 compileJava.options.encoding = 'UTF-8'
 
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
 minecraft {
     injectedTags.put("MOD_ID", modId)
     injectedTags.put("MOD_NAME", modName)
