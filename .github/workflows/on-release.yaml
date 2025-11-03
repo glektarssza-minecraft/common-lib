@@ -38,5 +38,6 @@ jobs:
       ref: ${{github.event.release.tag_name}}
       github-release-id: ${{github.event.release.id}}
       attach-to-github-release: true
+      publish-to-github-packages: true
     secrets:
       github-token: ${{secrets.GITHUB_TOKEN}}
