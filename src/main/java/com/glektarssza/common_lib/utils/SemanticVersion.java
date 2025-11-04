@@ -145,7 +145,9 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
                     toCheck);
             })) {
                 throw new InvalidArgumentException("preRelease",
-                    "Pre-release identifier list item contains non-valid semantic version characters");
+                    String.format(
+                        "Pre-release identifier list item \"%s\" contains non-valid semantic version characters",
+                        preReleaseId));
             }
             if (Arrays.stream(VALID_DIGITS).allMatch((toCheck) -> {
                 return Chars.contains(
@@ -153,7 +155,9 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
                     toCheck);
             }) && preReleaseId.startsWith("0")) {
                 throw new InvalidArgumentException("preRelease",
-                    "Pre-release identifier is numerical only and starts with a zero");
+                    String.format(
+                        "Pre-release identifier \"%s\" is numerical only and starts with a zero",
+                        preReleaseId));
             }
             this.preRelease.add(preReleaseId);
         });
@@ -169,7 +173,9 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
                     toCheck);
             })) {
                 throw new InvalidArgumentException("buildMetadata",
-                    "Build metadata identifier list item contains non-valid semantic version characters");
+                    String.format(
+                        "Build metadata identifier list item \"%s\" contains non-valid semantic version characters",
+                        buildMetadataId));
             }
             this.buildMetadata.add(buildMetadataId);
         });
