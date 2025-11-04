@@ -139,7 +139,7 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
                 throw new InvalidArgumentException("preRelease",
                     "Pre-release identifier list contains an empty identifier string");
             }
-            if (!Arrays.stream(VALID_ASCII).allMatch((toCheck) -> {
+            if (!Arrays.stream(VALID_ASCII).anyMatch((toCheck) -> {
                 return Chars.contains(
                     TypeUtils.checkNullAndCast(preReleaseId.toCharArray()),
                     toCheck);
@@ -167,7 +167,7 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
                 throw new InvalidArgumentException("buildMetadata",
                     "Build metadata identifier list contains an empty identifier string");
             }
-            if (!Arrays.stream(VALID_ASCII).allMatch((toCheck) -> {
+            if (!Arrays.stream(VALID_ASCII).anyMatch((toCheck) -> {
                 return Chars.contains(
                     TypeUtils.checkNullAndCast(buildMetadataId.toCharArray()),
                     toCheck);
