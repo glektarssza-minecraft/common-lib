@@ -224,8 +224,15 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
             return 1;
         }
         if (this.major != other.major) {
-            return (int) Math.copySign(1, this.major - other.major);
+            return IntMathUtils.copySign(1, this.major - other.major);
         }
+        if (this.minor != other.minor) {
+            return IntMathUtils.copySign(1, this.minor - other.minor);
+        }
+        if (this.revision != other.revision) {
+            return IntMathUtils.copySign(1, this.revision - other.revision);
+        }
+        // TODO: Compare pre-release identifiers
         return 0;
     }
 }
