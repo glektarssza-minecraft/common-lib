@@ -181,26 +181,28 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
         });
     }
 
-    public int getMajorVersion() {
+    public int getMajor() {
         return this.major;
     }
 
-    public int getMinorVersion() {
+    public int getMinor() {
         return this.minor;
     }
 
-    public int getRevisionVersion() {
+    public int getRevision() {
         return this.revision;
     }
 
-    public String[] getPreReleaseIdentifiers() {
-        return this.preRelease
-            .toArray(new String[this.preRelease.size()]);
+    @Nonnull
+    public ImmutableList<String> getPreRelease() {
+        return TypeUtils
+            .checkNullAndCast(ImmutableList.copyOf(this.preRelease));
     }
 
-    public String[] getBuildMetadataIdentifiers() {
-        return this.buildMetadata
-            .toArray(new String[this.buildMetadata.size()]);
+    @Nonnull
+    public ImmutableList<String> getBuildMetadata() {
+        return TypeUtils
+            .checkNullAndCast(ImmutableList.copyOf(this.buildMetadata));
     }
 
     @Override
