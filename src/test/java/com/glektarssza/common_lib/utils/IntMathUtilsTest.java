@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import net.datafaker.Faker;
 
@@ -11,7 +12,8 @@ public class IntMathUtilsTest {
     public static final Faker fakerInstance = new Faker(Locale.ENGLISH);
 
     @Test
-    public void testAbs() {
+    @DisplayName("Test that `abs` returns a positive number when given a negative value")
+    public void testAbsNegative() {
         // -- Given
         int value = fakerInstance.number().negative();
 
@@ -20,23 +22,31 @@ public class IntMathUtilsTest {
 
         // -- Then
         Assertions.assertTrue(result == (int) Math.abs(value));
+    }
 
+    @Test
+    @DisplayName("Test that `abs` returns the same number when given a positive value")
+    public void testAbsPositive() {
         // -- Given
-        value = fakerInstance.number().positive();
+        int value = fakerInstance.number().positive();
 
         // -- When
-        result = IntMathUtils.abs(value);
+        int result = IntMathUtils.abs(value);
 
         // -- Then
-        Assertions.assertTrue(result == (int) Math.abs(value));
+        Assertions.assertEquals(value, result);
+    }
 
+    @Test
+    @DisplayName("Test that `abs` returns zero when given a zero value")
+    public void testAbsZero() {
         // -- Given
-        value = 0;
+        int value = 0;
 
         // -- When
-        result = IntMathUtils.abs(value);
+        int result = IntMathUtils.abs(value);
 
         // -- Then
-        Assertions.assertTrue(result == (int) Math.abs(value));
+        Assertions.assertEquals(value, result);
     }
 }
