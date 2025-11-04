@@ -37,4 +37,17 @@ public class IntMathUtils {
     public static int signum(int value) {
         return (0 < value ? 1 : 0) - (value < 0 ? 1 : 0);
     }
+
+    /**
+     * Copy the sign from a given number to another number.
+     *
+     * @param magnitude The number to copy the sign of the other number on to.
+     * @param sign The number to copy the sign of.
+     *
+     * @return The value of the {@code magnitude} parameter with sign of the
+     *         {@code sign} parameter.
+     */
+    public static int copySign(int magnitude, int sign) {
+        return (signum(sign) < 0 ? -1 : 1) * absolute(magnitude);
+    }
 }
