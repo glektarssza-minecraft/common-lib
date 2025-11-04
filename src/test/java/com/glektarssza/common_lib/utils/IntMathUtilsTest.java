@@ -8,43 +8,49 @@ import org.junit.jupiter.api.DisplayName;
 
 import net.datafaker.Faker;
 
+/**
+ * Tests for the {@link IntMathUtils} class.
+ */
 public class IntMathUtilsTest {
+    /**
+     * The fake data instance.
+     */
     public static final Faker fakerInstance = new Faker(Locale.ENGLISH);
 
     @Test
-    @DisplayName("Test that `abs` returns a positive number when given a negative value")
+    @DisplayName("Test that `absolute` returns a positive number when given a negative value")
     public void testAbsNegative() {
         // -- Given
         int value = fakerInstance.number().negative();
 
         // -- When
-        int result = IntMathUtils.abs(value);
+        int result = IntMathUtils.absolute(value);
 
         // -- Then
         Assertions.assertTrue(result == (int) Math.abs(value));
     }
 
     @Test
-    @DisplayName("Test that `abs` returns the same number when given a positive value")
+    @DisplayName("Test that `absolute` returns the same number when given a positive value")
     public void testAbsPositive() {
         // -- Given
         int value = fakerInstance.number().positive();
 
         // -- When
-        int result = IntMathUtils.abs(value);
+        int result = IntMathUtils.absolute(value);
 
         // -- Then
         Assertions.assertEquals(value, result);
     }
 
     @Test
-    @DisplayName("Test that `abs` returns zero when given a zero value")
+    @DisplayName("Test that `absolute` returns zero when given a zero value")
     public void testAbsZero() {
         // -- Given
         int value = 0;
 
         // -- When
-        int result = IntMathUtils.abs(value);
+        int result = IntMathUtils.absolute(value);
 
         // -- Then
         Assertions.assertEquals(value, result);
