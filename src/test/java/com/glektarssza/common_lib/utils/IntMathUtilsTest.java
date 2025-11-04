@@ -49,4 +49,43 @@ public class IntMathUtilsTest {
         // -- Then
         Assertions.assertEquals(value, result);
     }
+
+    @Test
+    @DisplayName("Test that `signum` returns negative one when given a negative value")
+    public void testSignumNegative() {
+        // -- Given
+        int value = fakerInstance.number().negative();
+
+        // -- When
+        int result = IntMathUtils.signum(value);
+
+        // -- Then
+        Assertions.assertEquals(-1, result);
+    }
+
+    @Test
+    @DisplayName("Test that `signum` returns positive one when given a positive value")
+    public void testSignumPositive() {
+        // -- Given
+        int value = fakerInstance.number().positive();
+
+        // -- When
+        int result = IntMathUtils.signum(value);
+
+        // -- Then
+        Assertions.assertEquals(result, 1);
+    }
+
+    @Test
+    @DisplayName("Test that `signum` returns zero when given a zero value")
+    public void testSignumZero() {
+        // -- Given
+        int value = 0;
+
+        // -- When
+        int result = IntMathUtils.signum(value);
+
+        // -- Then
+        Assertions.assertEquals(result, 0);
+    }
 }
