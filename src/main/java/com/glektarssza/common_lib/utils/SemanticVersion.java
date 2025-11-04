@@ -43,11 +43,13 @@ public class SemanticVersion implements Comparable<SemanticVersion> {
     /**
      * The pre-release version identifiers.
      */
+    @Nonnull
     private List<String> preRelease;
 
     /**
      * The build metadata identifiers..
      */
+    @Nonnull
     private List<String> buildMetadata;
 
     /**
