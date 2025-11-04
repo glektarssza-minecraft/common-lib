@@ -9,6 +9,7 @@ public class IntMathUtils {
      * @return The absolute value of the integer.
      */
     public static int abs(int value) {
-        return Integer.signum(value) < 0 ? 0 - value : value;
+        // -- https://stackoverflow.com/a/12041874/1347304
+        return ((value ^ (value >> 31)) - (value >> 31));
     }
 }
