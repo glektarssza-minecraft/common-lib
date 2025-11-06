@@ -11,7 +11,7 @@ import net.datafaker.Faker;
 /**
  * Tests for the {@link IntMathUtils} class.
  */
-public class IntMathUtilsTest {
+public class IntMathUtilsTests {
     /**
      * The fake data instance.
      */
