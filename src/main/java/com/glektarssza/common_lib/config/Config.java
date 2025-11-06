@@ -2,7 +2,7 @@ package com.glektarssza.common_lib.config;
 
 import javax.annotation.Nonnull;
 
-import com.glektarssza.common_lib.utils.SemanticVersion;
+import com.glektarssza.common_lib.utils.Version;
 
 /**
  * An abstract class that provides some common mod configuration functionality.
@@ -15,5 +15,5 @@ public abstract class Config {
      *        underlying storage.
      * @param configVersion The version of the configuration being used.
      */
-    public Config(@Nonnull SemanticVersion configVersion) {}
+    public Config(@Nonnull Version configVersion) {}
 }
